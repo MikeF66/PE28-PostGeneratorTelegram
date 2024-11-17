@@ -70,7 +70,7 @@ def generate_post(topic):
         response_post = openai.ChatCompletion.create(
             model="gpt-4o-mini-2024-07-18",
             messages=[{"role": "user", "content": prompt_post}],
-            max_tokens=1000,
+            max_tokens=500,
             n=1,
             temperature=0.6,
         )
