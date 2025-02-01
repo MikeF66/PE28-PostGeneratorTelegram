@@ -38,7 +38,7 @@ class Topic(BaseModel):
         response_title = openai.ChatCompletion.create(
             model="gpt-4o-mini-2024-07-18",
             messages=[{"role": "user", "content": prompt_title}],
-            max_tokens=10,
+            max_tokens=5,
             n=1,
             temperature=0.7,
         )
@@ -52,7 +52,7 @@ class Topic(BaseModel):
         response_meta = openai.ChatCompletion.create(
             model="gpt-4o-mini-2024-07-18",
             messages=[{"role": "user", "content": prompt_meta}],
-            max_tokens=20,
+            max_tokens=8,
             n=1,
             temperature=0.6,
         )
@@ -70,7 +70,7 @@ class Topic(BaseModel):
         response_post = openai.ChatCompletion.create(
             model="gpt-4o-mini-2024-07-18",
             messages=[{"role": "user", "content": prompt_post}],
-            max_tokens=50,
+            max_tokens=20,
             n=1,
             temperature=0.6,
         )
