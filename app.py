@@ -8,26 +8,26 @@ app = FastAPI()
 
 # Получаем API ключи из переменных окружения
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-newsapi_key = os.environ.get("NEWSAPI_KEY")
+#newsapi_key = os.environ.get("NEWSAPI_KEY")
 
 if not openai.api_key:
     raise ValueError("Переменная окружения OPENAI_API_KEY не установлена")
-if not newsapi_key:
-    raise ValueError("Переменная окружения NEWSAPI_KEY не установлена")
+#if not newsapi_key:
+    #raise ValueError("Переменная окружения NEWSAPI_KEY не установлена")
 
 class Topic(BaseModel):
     topic: str
 
-def get_recent_news(topic):
-    url = f"https://newsapi.org/v2/everything?q={topic}&apiKey={newsapi_key}"
-    response = requests.get(url)
-    if response.status_code != 200:
-        raise HTTPException(status_code=500, detail="Ошибка при получении данных из NewsAPI")
-    articles = response.json().get("articles", [])
-    if not articles:
-        return "Свежих новостей не найдено."
-    recent_news = [article["title"] for article in articles[:1]]
-    return "\n".join(recent_news)
+#def get_recent_news(topic):
+    #url = f"https://newsapi.org/v2/everything?q={topic}&apiKey={newsapi_key}"
+    #response = requests.get(url)
+    #if response.status_code != 200:
+        #raise HTTPException(status_code=500, detail="Ошибка при получении данных из NewsAPI")
+    #articles = response.json().get("articles", [])
+    #if not articles:
+        #return "Свежих новостей не найдено."
+    #recent_news = [article["title"] for article in articles[:1]]
+    #return "\n".join(recent_news)
 
 def generate_post(topic):
     recent_news = get_recent_news(topic)
