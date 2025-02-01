@@ -29,7 +29,7 @@ class Topic(BaseModel):
     #recent_news = [article["title"] for article in articles[:1]]
     #return "\n".join(recent_news)
 
-#def generate_post(topic):
+def generate_post(topic):
     #recent_news = get_recent_news(topic)
 
     # Генерация заголовка
