@@ -89,8 +89,14 @@ async def generate_post_api(topic: Topic):
     generated_post = generate_post(topic.topic)
     return generated_post
 
+@app.get("/")
+async def root():
+    # Корневой эндпоинт для проверки работоспособности сервиса
+    return {"message": "Service is running"}
+
 @app.get("/heartbeat")
 async def heartbeat_api():
+    # Эндпоинт проверки состояния сервиса
     return {"status": "OK"}
 
 if __name__ == "__main__":
